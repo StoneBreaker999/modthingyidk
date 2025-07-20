@@ -1,0 +1,11 @@
+[package]
+name = "modthingyidk"
+authors = ["StoneBreaker999"]
+version = "0.0.0"
+edition = "2024"
+publish = false
+readme = "README.md"
+
+
+[dependencies]
+byteorder = "1.5.0"
