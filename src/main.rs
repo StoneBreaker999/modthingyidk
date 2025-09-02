@@ -1,20 +1,7 @@
-mod modulefile;
-mod offsets;
-
-use modulefile::ModFile;
-
+use modthingyidk::AmigaMod;
 fn main() {
-    // TODO: make this better
+    // TODO: make this pretty
     let bytes = include_bytes!("../vivalaluna-damla.mod");
 
-    println!("ModFile::new() \n - {:#?}", ModFile::new());
-
-    println!(
-        "ModFile::new().from_file(bytes) \n - {:#?}",
-        ModFile::new().from_file(bytes)
-    );
-    println!(
-        "SONG NAME - {:#?}",
-        ModFile::new().from_file(bytes).song_name()
-    );
+    println!("{:#?}", AmigaMod::new().from_bytes(bytes));
 }
