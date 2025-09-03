@@ -2,7 +2,6 @@ use byteorder::ByteOrder;
 use std::default::Default;
 
 #[derive(Debug)]
-
 pub struct Sample {
     name: String,
     length: u16,
@@ -12,10 +11,6 @@ pub struct Sample {
     repeat_length: u16,
     //audio: vec![] // TODO!
 }
-#[derive(Debug)]
-
-// TODO!
-struct Pattern {}
 
 impl Default for Sample {
     fn default() -> Self {
@@ -50,6 +45,10 @@ impl Sample {
     }
 }
 
+// TODO!
+#[derive(Debug)]
+struct Pattern {}
+
 #[derive(Debug)]
 pub struct AmigaMod {
     name: String,
@@ -65,7 +64,7 @@ impl Default for AmigaMod {
     fn default() -> Self {
         Self {
             name: "".to_string(),
-            samples: vec![Sample::default()],
+            samples: vec![],
             length: 0,
             _restart_byte: 0,
             song_positions: vec![],
@@ -87,7 +86,7 @@ impl AmigaMod {
                 .trim_matches('\0')
                 .to_string(),
 
-            // offset: 20, size: 30 bytes * 31 channels = 930
+            // offset: 20, size: 30 bytes * 31 entries = 930
             samples: {
                 let mut samples: Vec<Sample> = vec![];
                 {
